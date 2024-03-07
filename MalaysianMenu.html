@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Website | Malaysian Menu </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+    <header>
+
+        <a href="index.html" class="logo"><img src="images/logo.png">FOODIE</a>
+
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a class="active" href="Menu.html">Menu</a>
+            <a href="Cart.html">Cart</a>
+            <a href="Blog.html">Blog</a>
+            <a href="Contactus.html">Contact Us</a>
+            <a href="Payment.html">Payment</a>
+
+        </nav>
+
+    </header>
+
+
+    <section class="popular" id="popular">
+
+        <h1 class="heading"> Malaysian <span>Menu</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <span class="price"> $10 </span>
+                <img src="images/Laksa.png" alt="Laksa">
+                <h3>Laksa</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+
+                <button class="btn order-now" data-product="Laksa" data-price="10.00">Order Now</button>  
+
+            </div>
+            <div class="box">
+                <span class="price"> $15 </span>
+                <img src="images/Roti-jala.png" alt="Roti jala">
+                <h3>Roti jala</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+
+                <button class="btn order-now" data-product="Roti jala" data-price="15.00">Order Now</button>  
+
+
+            </div>
+            <div class="box">
+                <span class="price"> $20 </span>
+                <img src="images/Satay.png" alt="Satay">
+                <h3>Satay</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <button class="btn order-now" data-product="Satay" data-price="20.00">Order Now</button>  
+
+            </div>
+            <div class="box">
+                <span class="price"> $25 </span>
+                <img src="images/Ikan-bakar.png" alt="Ikan bakar">
+                <h3>Ikan bakar</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <button class="btn order-now" data-product="Ikan bakar" data-price="25.00">Order Now</button>  
+
+            </div>
+            <div class="box">
+                <span class="price"> $30 </span>
+                <img src="images/Kaya-toast.png" alt="Kaya-toast">
+                <h3>Kaya toast</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <button class="btn order-now" data-product="Kaya toast" data-price="30.00">Order Now</button>  
+
+            </div>
+            <div class="box">
+                <span class="price"> $35 </span>
+                <img src="images/Wonton-mee.jpg" alt="Wonton-mee">
+                <h3>Wonton mee</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <button class="btn order-now" data-product="Wonton mee" data-price="35.00">Order Now</button>  
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <section class="footer">
+
+        <div class="share">
+            <a href="#" class="btn">facebook</a>
+            <a href="#" class="btn">twitter</a>
+            <a href="#" class="btn">instagram</a>
+            <a href="#" class="btn">pinterest</a>
+            <a href="#" class="btn">linkedin</a>
+        </div>
+
+        <h1 class="credit"> All rights reserved 2024 </h1>
+
+    </section>
+
+
+    <a href="#popular" class="fas fa-angle-up" id="scroll-top"></a>
+
+    <script>
+        // Add a click event listener to the Order Now buttons
+        document.querySelectorAll('.order-now').forEach(button => {
+            button.addEventListener('click', function () {
+                const productName = this.getAttribute('data-product');
+                const productPrice = this.getAttribute('data-price');
+                // Create a URL to Cart.html with product and price parameters
+                const url = `Cart.html?product=${encodeURIComponent(productName)}&price=${encodeURIComponent(productPrice)}`;
+                // Redirect to Cart.html with product and price data
+                window.location.href = url;
+            });
+        });
+    </script>
+
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>
