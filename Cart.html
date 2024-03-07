@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="Foodie Logo">FOODIE</a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="Menu.html">Menu</a>
+            <a class="active" href="Cart.html">Cart</a>
+            <a href="Blog.html">Blog</a>
+            <a href="Contactus.html">Contact Us</a>
+            <a href="Payment.html">Payment</a>
+        </nav>
+    </header>
+    
+    <section class="cart" id="cart">
+        <h1 class="heading">Shopping Cart</h1>
+        <br>
+        <hr>
+        <br><br><br>
+        <div class="cart-items" id="cart-items">
+
+        </div>
+
+        <br><br>
+        <br><br>
+        <div class="cart-total">
+            <h2>Total: <span id="cart-total-price">$0</span></h2>
+            <br><br>
+            <br><br>
+
+            <a href="Payment.html" class="btn">Checkout</a>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="share">
+            <a href="#" class="btn">facebook</a>
+            <a href="#" class="btn">twitter</a>
+            <a href="#" class="btn">instagram</a>
+            <a href="#" class="btn">pinterest</a>
+            <a href="#" class="btn">linkedin</a>
+        </div>
+        <h1 class="credit">All rights reserved 2024</h1>
+    </section>
+
+    <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
+
+
+    <script >
+        
+function getURLParameters() {
+  const params = {};
+  const urlParams = new URLSearchParams(window.location.search);
+  for (const [key, value] of urlParams.entries()) {
+      params[key] = value;
+  }
+  return params;
+}
+
+
+function addToCart(productName, productPrice) {
+  const cartItems = document.getElementById('cart-items');
+  const cartTotalPrice = document.getElementById('cart-total-price');
+
+  const cartItem = document.createElement('div');
+  cartItem.className = 'cart-item';
+  cartItem.innerHTML = `
+      <span>${productName}</span>
+      <span>$${productPrice}</span>
+  `;
+
+  cartItems.appendChild(cartItem);
+
+  const currentTotalPrice = parseFloat(cartTotalPrice.innerText.replace('$', ''));
+  cartTotalPrice.innerText = `$${(currentTotalPrice + parseFloat(productPrice)).toFixed(2)}`;
+}
+
+
+const urlParameters = getURLParameters();
+if (urlParameters.product && urlParameters.price) {
+  const productName = decodeURIComponent(urlParameters.product);
+  const productPrice = decodeURIComponent(urlParameters.price);
+
+  addToCart(productName, productPrice);
+}
+    </script>
+    
+
+</body>
+
+</html>
